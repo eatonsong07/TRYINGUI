@@ -10,6 +10,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel label;
     MyFrame(){
         ImageIcon icon=new ImageIcon("play.png");
+        ImageIcon instructions=new ImageIcon("instructions.png");
 
         //insert a picture what you want your play button to look like
         JButton play=new JButton();
@@ -36,17 +37,22 @@ public class MyFrame extends JFrame implements ActionListener {
         play.setBorder(BorderFactory.createEtchedBorder());
 
 
+       //label
+        JLabel label=new JLabel();
+        label.setIcon(instructions);
+        label.setBounds(100,100,100,100);
+        label.setVisible(false);
+
+        //jpanel
+        JPanel intro=new JPanel();
+        intro.setBounds(1920,1080,1920,1080);
+        intro.add(label); //use the label as a background
+
+
+
+
+
         //balance button
-
-
-
-
-        //label
-//        label=new JLabel();
-//        label.setIcon();
-//        label.setBounds(100,100,100,100);
-//        label.setVisible(false);
-
 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
