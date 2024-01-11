@@ -5,9 +5,10 @@ import java.awt.event.ActionListener;
 
 
 public class MyFrame extends JFrame implements ActionListener {
-    JButton play;
-    JButton balance;
-    JLabel label;
+    private JButton play;
+    private JButton balance;
+    private JLabel label;
+    private boolean next;
     MyFrame(){
         ImageIcon icon=new ImageIcon("play.png");
         ImageIcon instructions=new ImageIcon("instructions.png");
@@ -20,6 +21,8 @@ public class MyFrame extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == play) {
                     System.out.println("Hey");
+                    play.setEnabled(false);
+                    next=true;
                     //button.setEnabled("false); makes it so the button could only be used once
                     //label.setVisible(true); could make a label appear true;
                 }
@@ -40,32 +43,52 @@ public class MyFrame extends JFrame implements ActionListener {
        //label
         JLabel label=new JLabel();
         label.setIcon(instructions);
-        label.setBounds(100,100,100,100);
-        label.setVisible(false);
+        label.setBounds(0,0,1920,180);
+        label.setVisible(true);
+
 
         //jpanel
-        JPanel intro=new JPanel();
-        intro.setBounds(1920,1080,1920,1080);
+        JPanel first=new JPanel();
+        //first.add(image.png); // add an image here
+        //first.setBounds(0,0,1920,1080); //sets the size
+        first.setVisible(true);
+
+
+        JPanel intro = new JPanel();
+        intro.setBounds(0,0,1920,1080);
         intro.add(label); //use the label as a background
 
 
 
 
 
-        //balance button
+
 
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(1920,1080);
         this.setVisible(true);
+        this.add(first);
         this.add(play);
+        while(!next){
+           System.out.println(next);
+        }
+        System.out.println(next);
+        first.setVisible(false);
+        frame.remove
+        intro.setVisible(true);
+        this.add(intro);
+        this.show();
+
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == play) {
             System.out.println("Hey");
-            //button.setEnabled("false); makes it so the button could only be used once
+            play.setEnabled(false);
+            //makes it so the button could only be used once
             //label.setVisible(true); could make a label appear true;
+            next=true;
         }
     }
 }
